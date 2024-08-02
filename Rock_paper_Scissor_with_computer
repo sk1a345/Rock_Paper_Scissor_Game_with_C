@@ -1,0 +1,117 @@
+//Rock Paper Scissor:
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int random()
+{
+    srand(time(NULL));
+    int min = 1;
+    int max = 3;
+    int random_n = rand() % (max-min+1)+min;
+    return random_n;
+}
+int main()
+{
+    int ch;char cha = 'y';
+    int co =0,you =0,tie = 0;
+    printf("\n\n***************** WELCOME *****************\n");
+    printf("\n\t\tLET'S PLAY\n\t     ROCK PAPER SCISSOR\n");
+    srand(time(NULL));
+    while(cha=='y'||cha=='Y')
+    {
+        printf("\nChoices:\n1-ROCK\n2-PAPER\n3-SCISSOR\n");
+        printf("Enter choice: ");
+        scanf("%d",&ch);
+        int c = random();
+        switch(ch)
+        {
+            case 1:{
+                if(c==1)
+                {
+                    printf("You selected Rock Computer also selected Rock\nIt's tie\nBetter Luck Next Time!!");
+                    tie++;
+                    
+                }
+                else if(c==2)
+                {
+                    printf("You selected Rock Computer selected Paper\nComputer won\nBetter Luck Next Time!!!");
+                    co++;
+                    
+                }
+                else if(c==3)
+                {
+                    printf("You selected Rock Computer selected Scissor\nCongratulations !!!!!!\nYou Won!!");
+                    you++;
+                    
+                }
+                break;
+            }
+            case 2:{
+                if(c==2)
+                {
+                    printf("You selected Paper Computer also selected Paper\nIt's tie\nBetter Luck Next Time!!");
+                    tie++;
+                    
+                }
+                else if(c==3)
+                {
+                    printf("You selected Paper Computer selected Scissor\nComputer won\nBetter Luck Next Time!!!");
+                    co++;
+                    
+                }
+                else if(c==1)
+                {
+                    printf("You selected Paper Computer selected Rock\nCongratulations !!!!!!\nYou Won!!");
+                    you++;
+                    
+                }
+                break;
+            }
+            case 3:{
+                if(c==3)
+                {
+                    printf("You selected Scissor Computer also selected Scissor\nIt's tie\nBetter Luck Next Time!!");
+                    tie++;
+                    
+                }
+                else if(c==1)
+                {
+                    printf("You selected Scissor Computer selected Rock\nComputer won\nBetter Luck Next Time!!!");
+                    co++;
+                    
+                }
+                else if(c==2)
+                {
+                    printf("You selected Scissor Computer selected Paper\nCongratulations !!!!!!\nYou Won!!");
+                    you++;
+                   
+                }
+                break;
+            }
+            default:printf("\nInvalid choice");
+        }
+        printf("\nDo you want to play Next game again(y/n): ");
+        scanf(" %c",&cha);
+    }
+    printf("\n\t*****OVERALL RESULT OF THE GAME******\n\n");
+    printf("_____________________\n");
+    printf("| YOUR SCORE      %d |\n",you);
+    printf("|                   |\n");
+    printf("| COMPUTER SCORE  %d |\n",co);
+    printf("|                   |\n");
+    printf("| Tie matches     %d |\n",tie);
+    printf("|___________________|\n");
+    if(co<you)
+    {
+        printf("\nCongratulations!!\nyou are the WINNER of this GAME");
+    }
+    else if(co>you)
+    {
+        printf("\nYou could not win this this\nBetter Luck Next time");
+    }
+    else
+    {
+        printf("\nWell Played!!!\nIt was Tie!!");
+    }
+    return 0;
+}
